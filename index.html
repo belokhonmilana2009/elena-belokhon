@@ -1,0 +1,2076 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Елена Белохон — Ментор детского образовательного бизнеса</title>
+<meta name="description" content="Елена Белохон — эксперт по открытию и масштабированию детских образовательных центров. 16+ лет опыта, 15 центров, 300+ успешных консультаций.">
+<meta property="og:title" content="Елена Белохон — Ментор детского образовательного бизнеса">
+<meta property="og:description" content="Помогаю предпринимателям открывать, масштабировать и систематизировать детские образовательные центры.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<style>
+:root {
+  --blue: #0f2447;
+  --blue-mid: #1a3a6e;
+  --blue-light: #2563a8;
+  --blue-glow: #3b82f6;
+  --terra: #c05a3a;
+  --terra-light: #d4795a;
+  --terra-pale: #f0e0d8;
+  --white: #ffffff;
+  --off-white: #f7f5f2;
+  --cream: #ede9e3;
+  --text-dark: #0a1628;
+  --text-muted: #6b7b9a;
+  --text-light: #a8b4c8;
+  --border: rgba(255,255,255,0.1);
+  --border-dark: rgba(15,36,71,0.12);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --nav-h: 72px;
+  --trans: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-theme="light"] {
+  --bg: var(--off-white);
+  --bg2: var(--cream);
+  --surface: #ffffff;
+  --surface2: #f0ece6;
+  --txt: var(--text-dark);
+  --txt2: #3d4f6e;
+  --txt3: var(--text-muted);
+  --bdr: var(--border-dark);
+  --nav-bg: rgba(247,245,242,0.9);
+}
+[data-theme="dark"] {
+  --bg: #080f1e;
+  --bg2: #0d1829;
+  --surface: #111d33;
+  --surface2: #162240;
+  --txt: #f0ece6;
+  --txt2: #b8c6e0;
+  --txt3: #6b7b9a;
+  --bdr: rgba(255,255,255,0.08);
+  --nav-bg: rgba(8,15,30,0.92);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--txt);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--terra); border-radius: 2px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--nav-h);
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--bdr);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw;
+  transition: var(--trans);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--txt);
+}
+.nav-logo span { color: var(--terra); }
+.nav-links { display: flex; align-items: center; gap: 2.5rem; }
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--txt3);
+  transition: var(--trans);
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--terra);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover { color: var(--terra); }
+.nav-links a:hover::after { width: 100%; }
+.nav-actions { display: flex; align-items: center; gap: 1rem; }
+.theme-toggle {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--bdr);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--txt3);
+  transition: var(--trans);
+  font-size: 1rem;
+}
+.theme-toggle:hover { border-color: var(--terra); color: var(--terra); }
+.btn-nav {
+  padding: 0.55rem 1.4rem;
+  background: var(--terra);
+  color: white;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: var(--trans);
+}
+.btn-nav:hover { background: var(--terra-light); transform: translateY(-1px) scale(1.03); box-shadow: 0 6px 20px rgba(192,90,58,0.3); }
+.btn-nav:active { transform: translateY(0) scale(0.97); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger span { width: 22px; height: 1.5px; background: var(--txt); display: block; transition: var(--trans); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: var(--bg);
+}
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+.hero-orb-1 { width: 600px; height: 600px; background: var(--blue-light); top: -100px; right: -100px; }
+.hero-orb-2 { width: 400px; height: 400px; background: var(--terra); bottom: 0; left: -100px; opacity: 0.08; }
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 6vw 5vw 6vw 8vw;
+  display: flex; flex-direction: column; gap: 2rem;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--terra);
+  border-radius: 40px;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--terra);
+  width: fit-content;
+  min-height: 28px;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--terra);
+  animation: pulse-dot 2s infinite;
+  flex-shrink: 0;
+}
+.hero-badge::after {
+  content: '|';
+  animation: blink-cursor 0.7s step-end infinite;
+  color: var(--terra);
+  font-weight: 300;
+  line-height: 1;
+}
+.hero-badge.done::after { display: none; }
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: var(--txt);
+}
+.hero-name em { font-style: italic; color: var(--terra); }
+.hero-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+  font-weight: 300;
+  color: var(--txt2);
+  line-height: 1.4;
+  max-width: 480px;
+}
+.hero-desc {
+  font-size: 0.95rem;
+  color: var(--txt3);
+  max-width: 420px;
+  line-height: 1.75;
+}
+.hero-pills {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+}
+.hero-pill {
+  padding: 0.3rem 0.9rem;
+  background: var(--surface2);
+  border: 1px solid var(--bdr);
+  border-radius: 3px;
+  font-size: 0.75rem;
+  color: var(--txt3);
+  letter-spacing: 0.04em;
+}
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+.btn-primary {
+  padding: 0.9rem 2rem;
+  background: var(--terra);
+  color: white;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: var(--trans);
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--terra-light); transform: translateY(-2px) scale(1.02); box-shadow: 0 12px 30px rgba(192,90,58,0.25); }
+.btn-primary:active { transform: translateY(0) scale(0.98); }
+.btn-secondary {
+  padding: 0.9rem 2rem;
+  border: 1px solid var(--bdr);
+  color: var(--txt2);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: var(--trans);
+  display: inline-block;
+}
+.btn-secondary:hover { border-color: var(--terra); color: var(--terra); }
+.hero-image-wrap {
+  position: relative; z-index: 2;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+}
+.hero-image-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: contrast(1.04) brightness(0.97);
+}
+.hero-image-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, var(--bg) 0%, transparent 30%);
+}
+.hero-image-overlay-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
+  background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+}
+
+/* ── SECTION BASE ── */
+section { padding: 6rem 8vw; position: relative; }
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: 0.7rem;
+}
+.section-label::before {
+  content: '';
+  width: 28px; height: 1px;
+  background: var(--terra);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--txt);
+  margin-bottom: 1.5rem;
+}
+.section-title em { font-style: italic; color: var(--terra); }
+.section-sub {
+  font-size: 1rem;
+  color: var(--txt3);
+  line-height: 1.75;
+  max-width: 560px;
+}
+
+/* ── STATS ── */
+.stats {
+  background: var(--blue);
+  padding: 5rem 8vw;
+  position: relative;
+  overflow: hidden;
+}
+.stats::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(59,130,246,0.15) 0%, transparent 60%);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  position: relative; z-index: 1;
+}
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 300;
+  color: white;
+  line-height: 1;
+  display: block;
+}
+.stat-num sup { font-size: 0.4em; vertical-align: super; color: var(--terra-light); }
+.stat-label {
+  margin-top: 0.6rem;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.stat-divider {
+  width: 1px;
+  background: rgba(255,255,255,0.1);
+  align-self: stretch;
+  display: none;
+}
+
+/* ── STORY ── */
+.story { background: var(--bg2); }
+.story-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+.story-text p {
+  font-size: 1.05rem;
+  color: var(--txt2);
+  line-height: 1.85;
+  margin-bottom: 1.2rem;
+  text-align: justify;
+}
+.story-text p strong { color: var(--txt); font-weight: 500; }
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: sticky;
+  top: calc(var(--nav-h) + 2rem);
+}
+.timeline-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 1.2rem;
+  padding-bottom: 2.5rem;
+  position: relative;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 29px; top: 32px; bottom: 0;
+  width: 1px;
+  background: var(--bdr);
+}
+.timeline-item:last-child::before { display: none; }
+.timeline-year {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--terra);
+  padding-top: 4px;
+  text-align: center;
+}
+.timeline-content h4 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--txt);
+  margin-bottom: 0.3rem;
+}
+.timeline-content p {
+  font-size: 0.85rem;
+  color: var(--txt3);
+  line-height: 1.6;
+}
+
+/* ── EXPERTISE ── */
+.expertise-carousel {
+  position: relative;
+  margin-top: 3rem;
+}
+.expertise-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 0.25rem;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+.expertise-card { scroll-snap-align: start; }
+.expertise-track::-webkit-scrollbar { display: none; }
+.expertise-card {
+  flex: 0 0 calc(33.333% - 0.7rem);
+  min-width: 260px;
+  background: var(--surface);
+  padding: 2rem 1.8rem;
+  border: 1px solid var(--bdr);
+  border-radius: 8px;
+  transition: var(--trans);
+  cursor: default;
+  position: relative;
+}
+.expertise-card:hover {
+  border-color: var(--terra);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(192,90,58,0.15);
+}
+.exp-icon {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--terra);
+  background: var(--surface2);
+  border-radius: 8px;
+}
+.exp-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--txt);
+  margin-bottom: 0.5rem;
+}
+.exp-desc {
+  font-size: 0.85rem;
+  color: var(--txt3);
+  line-height: 1.65;
+}
+.carousel-arrow {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--bdr);
+  color: var(--txt);
+  font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--trans);
+  z-index: 2;
+  cursor: pointer;
+}
+.carousel-arrow:hover { border-color: var(--terra); color: var(--terra); }
+.carousel-arrow.prev { left: -1rem; }
+.carousel-arrow.next { right: -1rem; }
+.carousel-arrow:disabled { opacity: 0.3; pointer-events: none; }
+
+/* ── MAP ── */
+.map-section { background: var(--bg2); overflow: hidden; }
+.map-wrap {
+  margin-top: 3rem;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--bdr);
+}
+.map-svg-container { position: relative; width: 100%; }
+.map-info {
+  position: absolute;
+  right: 2rem; top: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--bdr);
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-width: 200px;
+}
+.map-info h4 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--txt);
+  margin-bottom: 0.3rem;
+}
+.map-info p { font-size: 0.8rem; color: var(--txt3); }
+.map-legend {
+  display: flex; align-items: center; gap: 0.5rem;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: var(--txt3);
+}
+.map-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--terra); }
+.city-dot { cursor: pointer; transition: opacity 0.2s; }
+.city-dot:hover { opacity: 0.7; }
+.map-tooltip {
+  position: fixed; z-index: 50;
+  background: var(--surface);
+  border: 1px solid var(--bdr);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  min-width: 180px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateY(4px);
+}
+.map-tooltip.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.map-tooltip h4 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 300; color: var(--txt); margin-bottom: 0.3rem; }
+.map-tooltip h4 em { font-style: italic; color: var(--terra); }
+.map-tooltip .mt-stat { display: flex; justify-content: space-between; align-items: center; padding: 0.3rem 0; font-size: 0.85rem; color: var(--txt2); border-bottom: 1px solid var(--bdr); }
+.map-tooltip .mt-stat:last-child { border-bottom: none; }
+.map-tooltip .mt-stat span { font-weight: 500; color: var(--txt); }
+
+/* ── SERVICES ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.service-card {
+  background: var(--surface);
+  border: 1px solid var(--bdr);
+  border-radius: 8px;
+  padding: 2.5rem 2rem;
+  transition: var(--trans);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+}
+.service-card:hover {
+  border-color: var(--terra);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(192,90,58,0.1);
+}
+.service-num {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--bdr);
+  position: absolute;
+  top: 1.5rem; right: 2rem;
+  line-height: 1;
+}
+[data-theme="dark"] .service-num { color: rgba(255,255,255,0.05); }
+.service-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--txt);
+  margin-bottom: 0.8rem;
+}
+.service-desc {
+  font-size: 0.85rem;
+  color: var(--txt3);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+.service-price {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--terra);
+}
+.service-price span {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--txt3);
+  font-weight: 400;
+  margin-left: 0.3rem;
+}
+.service-cta {
+  margin-top: auto;
+  padding-top: 1rem;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--terra);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: var(--trans);
+}
+.service-cta:hover { gap: 0.8rem; }
+.service-cta::after { content: '→'; }
+
+/* ── CASES ── */
+.cases { background: var(--bg2); }
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.case-card {
+  background: var(--surface);
+  border: 1px solid var(--bdr);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: var(--trans);
+}
+.case-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(192,90,58,0.12); }
+.case-header {
+  background: var(--blue);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.case-header::before {
+  content: '';
+  position: absolute;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.06);
+  right: -50px; top: -50px;
+}
+.case-city {
+  display: none;
+}
+.case-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: white;
+}
+.case-body { padding: 2rem; }
+.case-metrics {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1rem; margin-bottom: 1.5rem;
+}
+.metric-item { }
+.metric-label {
+  font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--txt3); margin-bottom: 0.2rem;
+}
+.metric-before { font-size: 0.85rem; color: var(--txt3); text-decoration: line-through; }
+.metric-after { font-size: 1.1rem; font-weight: 500; color: var(--txt); }
+.metric-delta {
+  font-size: 0.75rem;
+  color: #4ade80;
+  display: inline-flex; align-items: center; gap: 0.2rem;
+}
+.case-quote { font-size: 0.85rem; color: var(--txt3); line-height: 1.7; font-style: italic; }
+
+/* ── TESTIMONIALS ── */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.testimonial-card {
+  background: var(--surface);
+  border: 1px solid var(--bdr);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: var(--trans);
+  display: flex; flex-direction: column; gap: 1.2rem;
+}
+.testimonial-card:hover { border-color: var(--terra); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(192,90,58,0.08); }
+.testimonial-stars { color: var(--terra); font-size: 0.85rem; letter-spacing: 0.1em; }
+.testimonial-text {
+  font-size: 0.9rem;
+  color: var(--txt2);
+  line-height: 1.75;
+  font-style: italic;
+  flex: 1;
+}
+.testimonial-author { display: flex; align-items: center; gap: 0.8rem; margin-top: auto; }
+.author-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: white;
+  flex-shrink: 0;
+}
+.author-name { font-size: 0.85rem; font-weight: 500; color: var(--txt); }
+.author-role { font-size: 0.75rem; color: var(--txt3); }
+
+/* ── FAQ ── */
+.faq { background: var(--bg2); }
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-top: 3rem;
+  border: 1px solid var(--bdr);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.faq-item {
+  border-bottom: 1px solid var(--bdr);
+  overflow: hidden;
+}
+.faq-item:nth-child(odd) { border-right: 1px solid var(--bdr); }
+.faq-item:last-child, .faq-item:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+.faq-q {
+  width: 100%; text-align: left;
+  padding: 1.5rem 2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--txt);
+  background: var(--surface);
+  transition: var(--trans);
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  cursor: pointer;
+}
+.faq-q:hover { background: var(--surface2); color: var(--terra); }
+.faq-arrow { flex-shrink: 0; transition: transform 0.3s ease; font-size: 0.85rem; color: var(--txt3); }
+.faq-item.open .faq-arrow { transform: rotate(180deg); }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  background: var(--surface);
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 2rem;
+  font-size: 0.85rem;
+  color: var(--txt3);
+  line-height: 1.75;
+}
+.faq-item.open .faq-a { max-height: 300px; padding: 0 2rem 1.5rem; }
+
+/* ── CONTACT ── */
+.contact-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.contact-channels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.channel-link {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--bdr);
+  border-radius: 8px;
+  transition: var(--trans);
+  color: var(--txt);
+}
+.channel-link:hover { border-color: var(--terra); transform: translateX(4px); background: var(--surface2); }
+.channel-icon {
+  width: 36px; height: 36px;
+  background: var(--surface2);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.channel-info { }
+.channel-name { font-size: 0.82rem; font-weight: 500; color: var(--txt); }
+.channel-handle { font-size: 0.75rem; color: var(--txt3); }
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-group label { font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--txt3); }
+.form-group input, .form-group textarea, .form-group select {
+  background: var(--surface);
+  border: 1px solid var(--bdr);
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--txt);
+  transition: var(--trans);
+  resize: vertical;
+  width: 100%;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+  outline: none;
+  border-color: var(--terra);
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color: var(--txt3); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--blue);
+  padding: 4rem 8vw 3rem;
+  color: white;
+}
+.footer-top {
+  display: flex; justify-content: space-between; align-items: start;
+  gap: 3rem; flex-wrap: wrap;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 2rem;
+}
+.footer-brand { max-width: 300px; }
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+  color: white;
+}
+.footer-logo em { font-style: italic; color: var(--terra-light); }
+.footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.7; }
+.footer-links h5 { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1rem; }
+.footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-links ul a { font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: var(--trans); }
+.footer-links ul a:hover { color: var(--terra-light); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+}
+.footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+.footer-awards { display: flex; gap: 1.5rem; }
+.award-badge {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.4);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 3px;
+  padding: 0.25rem 0.6rem;
+}
+
+/* ── CTA BANNER ── */
+.cta-banner {
+  background: var(--terra);
+  padding: 5rem 8vw;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.1) 0%, transparent 60%);
+}
+.cta-banner h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  color: white;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.cta-banner p { font-size: 1rem; color: rgba(255,255,255,0.7); margin-bottom: 2rem; position: relative; }
+.btn-white {
+  padding: 0.9rem 2.5rem;
+  background: white;
+  color: var(--terra);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: var(--trans);
+  display: inline-block;
+  position: relative;
+}
+.btn-white:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
+.btn-white:active { transform: translateY(0) scale(0.98); }
+
+/* ── MOBILE MENU ── */
+.mobile-nav {
+  display: none;
+  position: fixed; inset: 0; z-index: 99;
+  background: var(--bg);
+  flex-direction: column;
+  padding: 7rem 2rem 3rem;
+  gap: 2rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a { font-size: 1.5rem; font-family: var(--font-display); color: var(--txt); }
+.mobile-nav .btn-primary { font-family: var(--font-body); font-size: 0.85rem; text-align: center; }
+
+/* ── MODAL ── */
+.modal-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  align-items: center; justify-content: center;
+  padding: 1rem;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--bdr);
+  border-radius: 12px;
+  padding: 2.5rem;
+  max-width: 560px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--bdr);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--txt3);
+  font-size: 1.1rem;
+  transition: var(--trans);
+  background: var(--surface);
+}
+.modal-close:hover { border-color: var(--terra); color: var(--terra); }
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--txt);
+  margin-bottom: 0.5rem;
+}
+.modal-title em { font-style: italic; color: var(--terra); }
+.modal-sub {
+  font-size: 0.9rem;
+  color: var(--txt3);
+  margin-bottom: 1.5rem;
+}
+
+/* ── ANIMATIONS ── */
+.fade-up { opacity: 0; transform: translateY(30px); }
+.fade-in { opacity: 0; }
+.scale-in { opacity: 0; transform: scale(0.95); }
+
+/* ── RESPONSIVE ── */
+
+/* Tablet landscape: ≤1024px */
+@media (max-width: 1024px) {
+  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+  .story-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .timeline { position: static; }
+  .contact-channels { grid-template-columns: 1fr; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .faq-item:nth-child(odd) { border-right: none; }
+  .hero-tagline { max-width: 420px; }
+}
+
+/* Tablet portrait & phablet: ≤768px */
+@media (max-width: 768px) {
+  section { padding: 3.5rem 6vw; }
+
+  .hero-image-overlay-bottom { height: 120px; }
+
+  /* Nav */
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  /* Hero */
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-content { padding: 5rem 6vw 2rem; gap: 1.5rem; }
+  .hero-image-wrap { height: 80vw; min-height: 350px; }
+  .hero-image-overlay { background: linear-gradient(to bottom, var(--bg) 0%, transparent 25%, transparent 60%, var(--bg) 100%); }
+  .hero-badge { font-size: 0.8rem; padding: 0.5rem 1.2rem; }
+  .hero-name { font-size: 3.5rem; line-height: 1.05; }
+  .hero-tagline { font-size: 1.3rem; max-width: 100%; }
+  .hero-desc { font-size: 1rem; max-width: 100%; line-height: 1.8; }
+  .hero-pills { gap: 0.6rem; }
+  .hero-pill { font-size: 0.8rem; padding: 0.4rem 1rem; }
+  .hero-ctas { gap: 0.8rem; }
+
+  /* Buttons — larger touch targets on mobile */
+  .btn-primary, .btn-secondary, .btn-white {
+    padding: 1rem 2rem;
+    font-size: 0.9rem;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-nav { display: none; }
+
+  /* Typography */
+  .section-title { font-size: 2.6rem; }
+  .section-sub { font-size: 1.05rem; max-width: 100%; }
+  .section-label { font-size: 0.78rem; }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .stat-num { font-size: 3rem; }
+  .stat-label { font-size: 0.82rem; }
+  .stat-item:nth-child(5) { grid-column: 1 / -1; }
+
+  /* Story */
+  .story-text p { font-size: 1rem; line-height: 1.85; }
+  .timeline-item { padding-bottom: 2rem; }
+  .timeline-year { font-size: 1rem; }
+  .timeline-content h4 { font-size: 0.95rem; }
+  .timeline-content p { font-size: 0.9rem; }
+
+  /* Expertise carousel */
+  .expertise-card { flex: 0 0 78vw; min-width: 240px; padding: 1.8rem 1.5rem; }
+  .exp-title { font-size: 1.1rem; }
+  .exp-desc { font-size: 0.92rem; }
+  .carousel-arrow { display: none; }
+
+  /* Map */
+  .map-info {
+    position: static;
+    margin-bottom: 1rem;
+    padding: 1.2rem;
+    min-width: auto;
+    border-radius: 8px;
+  }
+  .map-info h4 { font-size: 1.2rem; }
+  .map-legend { font-size: 0.82rem; }
+  .map-wrap { margin-top: 1.5rem; }
+  .map-section svg text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    font-weight: 500;
+    fill: #ffffff;
+    paint-order: stroke;
+    stroke: rgba(0,0,0,0.5);
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Services */
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card { padding: 2rem; }
+  .service-title { font-size: 1.1rem; padding-right: 2.8rem; }
+  .service-desc { font-size: 0.95rem; line-height: 1.75; }
+  .service-num { font-size: 2.5rem; top: 1.2rem; right: 1.5rem; }
+  .service-price { font-size: 1.4rem; }
+
+  /* Cases */
+  .cases-grid { grid-template-columns: 1fr; }
+  .case-header { padding: 1.2rem 1.5rem; }
+  .case-body { padding: 1.5rem; }
+  .case-metrics { gap: 0.8rem; }
+  .metric-after { font-size: 1rem; }
+
+  /* Testimonials */
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .testimonial-card { padding: 1.5rem; }
+  .testimonial-text { font-size: 0.95rem; }
+  .author-name { font-size: 0.9rem; }
+
+  /* FAQ */
+  .faq-grid { grid-template-columns: 1fr; }
+  .faq-q { padding: 1.2rem 1.5rem; font-size: 0.95rem; }
+  .faq-a { font-size: 0.9rem; padding: 0 1.5rem; }
+  .faq-item.open .faq-a { padding: 0 1.5rem 1.2rem; }
+
+  /* Contact */
+  .contact-channels { grid-template-columns: 1fr; }
+  .channel-link { padding: 1.2rem; }
+  .channel-name { font-size: 0.95rem; }
+  .channel-handle { font-size: 0.82rem; }
+
+  /* Form */
+  .form-row { grid-template-columns: 1fr; }
+  .form-group input, .form-group textarea, .form-group select { font-size: 1rem; padding: 0.9rem 1rem; }
+  .form-group label { font-size: 0.8rem; }
+
+  /* CTA */
+  .cta-banner h2 { font-size: 2.2rem; }
+  .cta-banner p { font-size: 1rem; }
+
+  /* Footer */
+  .footer-top { flex-direction: column; gap: 2rem; }
+  .footer-logo { font-size: 1.4rem; }
+  .footer-tagline { font-size: 0.9rem; }
+  .footer-links ul a { font-size: 0.9rem; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 1rem; }
+
+  /* Modal */
+  .modal { padding: 2rem; }
+  .modal-title { font-size: 1.5rem; }
+  .modal-sub { font-size: 0.95rem; }
+  .modal-overlay { padding: 0.5rem; }
+
+  /* Mobile nav */
+  .mobile-nav { padding: 6rem 1.5rem 3rem; }
+  .mobile-nav a { font-size: 1.8rem; }
+  .mobile-nav .btn-primary { font-size: 0.9rem; }
+}
+
+/* Mobile: ≤480px */
+@media (max-width: 480px) {
+  section { padding: 2.5rem 5vw; }
+  .hero-content { padding: 4rem 5vw 1.5rem; gap: 1.2rem; }
+  .hero-badge { font-size: 0.75rem; padding: 0.4rem 1rem; }
+  .hero-name { font-size: 2.6rem; }
+  .hero-tagline { font-size: 1.1rem; }
+  .hero-desc { font-size: 0.95rem; }
+  .hero-image-wrap { height: 90vw; min-height: 250px; }
+  .hero-pill { font-size: 0.75rem; padding: 0.3rem 0.8rem; }
+  .hero-ctas { flex-direction: column; width: 100%; }
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-secondary { width: 100%; text-align: center; }
+  .section-title { font-size: 2rem; margin-bottom: 1rem; }
+  .section-sub { font-size: 0.95rem; }
+  .stats { padding: 3rem 5vw; }
+  .stats-grid { gap: 1.5rem; }
+  .stat-num { font-size: 2.2rem; }
+  .stat-label { font-size: 0.75rem; }
+  .stat-item:nth-child(5) { grid-column: 1 / -1; }
+  .service-card { padding: 1.5rem; }
+  .service-title { padding-right: 2.5rem; }
+  .service-num { font-size: 2rem; top: 0.8rem; right: 1.2rem; }
+  .case-header { padding: 1rem 1.5rem; }
+  .case-name { font-size: 1.3rem; }
+  .cta-banner { padding: 3rem 5vw; }
+  .cta-banner h2 { font-size: 1.6rem; }
+  .cta-banner p { font-size: 0.95rem; }
+  .btn-primary, .btn-secondary, .btn-white { padding: 0.9rem 1.5rem; font-size: 0.85rem; }
+  .mobile-nav { padding: 5rem 1.5rem 2.5rem; gap: 1.5rem; }
+  .mobile-nav a { font-size: 1.4rem; }
+  .modal { padding: 1.5rem; }
+}"
+</style>
+</head>
+<body data-theme="dark">
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">Елена <span>Белохон</span></div>
+  <div class="nav-links">
+    <a href="#about">О себе</a>
+    <a href="#services">Услуги</a>
+    <a href="#cases">Кейсы</a>
+    <a href="#testimonials">Отзывы</a>
+    <a href="#contact">Контакты</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <div class="nav-actions">
+    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">☀</button>
+    <a href="#" class="btn-nav" onclick="openModal();return false">Консультация</a>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" onclick="closeMobileNav()">О себе</a>
+  <a href="#services" onclick="closeMobileNav()">Услуги</a>
+  <a href="#cases" onclick="closeMobileNav()">Кейсы</a>
+  <a href="#testimonials" onclick="closeMobileNav()">Отзывы</a>
+  <a href="#contact" onclick="closeMobileNav()">Контакты</a>
+  <a href="#faq" onclick="closeMobileNav()">FAQ</a>
+  <a href="#" class="btn-primary" onclick="openModal();closeMobileNav();return false">Записаться на консультацию</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge" id="hero-badge" data-text="Ментор детского образовательного бизнеса"></div>
+    <h1 class="hero-name fade-up" id="hero-name">
+      Елена<br><em>Белохон</em>
+    </h1>
+    <p class="hero-tagline fade-up" id="hero-tagline">
+      Помогаю предпринимателям открывать, масштабировать и систематизировать детские образовательные центры
+    </p>
+    <p class="hero-desc fade-up" id="hero-desc">
+      16 лет в образовательном бизнесе. Основатель сети из 15 центров по Калужской области. Спикер отраслевых конференций. Эксперт, которому доверяют.
+    </p>
+    <div class="hero-pills fade-up" id="hero-pills">
+      <span class="hero-pill">16+ лет в бизнесе</span>
+      <span class="hero-pill">15 центров</span>
+      <span class="hero-pill">300+ консультаций</span>
+      <span class="hero-pill">Спикер конференций</span>
+    </div>
+    <div class="hero-ctas fade-up" id="hero-ctas">
+      <a href="#" class="btn-primary" onclick="openModal();return false">Записаться на консультацию</a>
+      <a href="https://max.ru/join/dUkxvQ1N84bwsexnULkxmgUXM-7QJFPOpRo84H1Edjo" target="_blank" class="btn-secondary">Подписаться в MAX</a>
+    </div>
+  </div>
+  <div class="hero-image-wrap">
+    <img src="elena.jpg" alt="Елена Белохон — ментор детского образовательного бизнеса" loading="eager">
+    <div class="hero-image-overlay"></div>
+    <div class="hero-image-overlay-bottom"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <span class="stat-num"><span class="counter" data-target="16">0</span><sup>+</sup></span>
+      <p class="stat-label">Лет в&nbsp;бизнесе</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num"><span class="counter" data-target="15">0</span></span>
+      <p class="stat-label">Образовательных центров</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num"><span class="counter" data-target="100">0</span><sup>+</sup></span>
+      <p class="stat-label">Обученных сотрудников</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num"><span class="counter" data-target="300">0</span><sup>+</sup></span>
+      <p class="stat-label">Бизнес-консультаций</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num"><span class="counter" data-target="1000">0</span><sup>+</sup></span>
+      <p class="stat-label">Семей получили помощь</p>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="about">
+  <div class="story-inner">
+    <div class="story-text">
+      <div class="section-label fade-up">История</div>
+      <h2 class="section-title fade-up">Как всё<br><em>началось</em></h2>
+      <div class="fade-up">
+        <p>В 2010 году, будучи молодой мамой, я столкнулась с тем, с чем сталкиваются тысячи родителей: <strong>в моём городе просто не было достойных мест для развития детей.</strong> Существующие кружки работали по устаревшим советским методикам, а новых качественных центров никто не открывал.</p>
+        <p>Имея высшее образование психолога и предпринимательский склад ума, я приняла решение, которое изменило мою жизнь — <strong>открыть собственный центр.</strong> Не ради бизнеса. Ради детей.</p>
+        <p>Первый центр я открыла в Калуге в 2010 году. Без венчурных инвестиций, без готовых бизнес-моделей, без наставника, который показал бы путь. Только мой опыт, психологическое образование и железная воля.</p>
+        <p>За следующие пять лет сеть выросла до 12 центров. Я поняла: <strong>не существует системного образования для предпринимателей в этой нише.</strong> Каждый проходит одни и те же ошибки с нуля. Именно тогда родилась моя миссия — стать тем ментором, которого у меня самой не было.</p>
+        <p>Сегодня я — признанный эксперт в Калужской области, победитель регионального этапа всероссийского конкурса «Мывместе», многократный грантополучатель и спикер профессиональных конференций в сфере детского образования.</p>
+      </div>
+    </div>
+    <div class="timeline fade-in">
+      <div class="timeline-item">
+        <div class="timeline-year">2010</div>
+        <div>
+          <div class="timeline-content" style="padding-left:2.5rem;">
+            <h4>Первый центр</h4>
+            <p>Открытие первого образовательного центра в Калуге. Первые 40 воспитанников. Первые победы и первые ошибки.</p>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2013</div>
+        <div>
+          <div class="timeline-content" style="padding-left:2.5rem;">
+            <h4>5 центров</h4>
+            <p>Масштабирование в районы Калужской области. Первая команда из 20 педагогов. Первый грант регионального правительства. Работа на базе общеобразовательных школ.</p>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2015</div>
+        <div>
+          <div class="timeline-content" style="padding-left:2.5rem;">
+            <h4>12 центров</h4>
+            <p>Построена первая система менеджмента. Выработана модель масштабирования.</p>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2020</div>
+        <div>
+          <div class="timeline-content" style="padding-left:2.5rem;">
+            <h4>15 центров</h4>
+            <p>Перевод бизнеса в цифровой формат в период пандемии. Разработка онлайн-программ. Адаптация системы для кризисного времени.</p>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">Сейчас</div>
+        <div>
+          <div class="timeline-content" style="padding-left:2.5rem;">
+            <h4>Ментор и спикер</h4>
+            <p>Консультирование собственников детских центров по всей России. Выступления на отраслевых конференциях. Авторские программы сопровождения.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="section-label fade-up">Экспертиза</div>
+  <h2 class="section-title fade-up">В чём я<br><em>помогаю</em></h2>
+  <div class="expertise-carousel fade-up">
+    <button class="carousel-arrow prev" id="expPrev">‹</button>
+    <button class="carousel-arrow next" id="expNext">›</button>
+    <div class="expertise-track" id="expTrack">
+      <div class="expertise-card">
+        <div class="exp-icon">◈</div>
+        <div class="exp-title">Открытие детских центров</div>
+        <div class="exp-desc">Помогаю пройти путь от идеи до первого занятия: выбор помещения, концепция, лицензирование, первый набор.</div>
+      </div>
+      <div class="expertise-card">
+        <div class="exp-icon">◉</div>
+        <div class="exp-title">Масштабирование бизнеса</div>
+        <div class="exp-desc">Системный рост: от одного центра к сети. Репликация модели, управление несколькими точками, стандарты качества.</div>
+      </div>
+      <div class="expertise-card">
+        <div class="exp-icon">◎</div>
+        <div class="exp-title">Построение команды</div>
+        <div class="exp-desc">Найм педагогов и администраторов, система мотивации, адаптация, корпоративная культура в образовании.</div>
+      </div>
+      <div class="expertise-card">
+        <div class="exp-icon">◆</div>
+        <div class="exp-title">Удержание клиентов</div>
+        <div class="exp-desc">Авторская система работы с родителями. LTV-стратегии. Программы лояльности, которые работают в детском сегменте.</div>
+      </div>
+      <div class="expertise-card">
+        <div class="exp-icon">◇</div>
+        <div class="exp-title">Снижение возвратов</div>
+        <div class="exp-desc">Диагностика причин оттока. Превентивные меры. Протоколы работы с недовольными родителями без конфликтов.</div>
+      </div>
+      <div class="expertise-card">
+        <div class="exp-icon">○</div>
+        <div class="exp-title">Лицензирование</div>
+        <div class="exp-desc">Полная поддержка в получении образовательной лицензии. Комплектование документов, прохождение проверок.</div>
+      </div>
+      <div class="expertise-card">
+        <div class="exp-icon">●</div>
+        <div class="exp-title">Правовая безопасность</div>
+        <div class="exp-desc">Работа в правовом поле: договоры с родителями, трудовое законодательство, проверки Рособрнадзора.</div>
+      </div>
+      <div class="expertise-card">
+        <div class="exp-icon">▲</div>
+        <div class="exp-title">Обучение персонала</div>
+        <div class="exp-desc">Корпоративные программы для педагогов и менеджеров. Стандарты обслуживания. Скрипты продаж образовательных услуг.</div>
+      </div>
+      <div class="expertise-card">
+        <div class="exp-icon">△</div>
+        <div class="exp-title">Маркетинг и продажи</div>
+        <div class="exp-desc">Привлечение семей без огромных бюджетов. Сарафанное радио, соцсети, партнёрства со школами и детсадами.</div>
+      </div>
+      <div class="expertise-card">
+        <div class="exp-icon">■</div>
+        <div class="exp-title">Бизнес-системы</div>
+        <div class="exp-desc">Автоматизация рутины. CRM, расписание, отчётность. Бизнес, который работает без вашего постоянного присутствия.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP SECTION -->
+<section class="map-section" id="geography">
+  <div class="section-label fade-up">География</div>
+  <h2 class="section-title fade-up">Сеть центров<br><em>Калужской области</em></h2>
+  <p class="section-sub fade-up">15 образовательных центров охватывают всю Калужскую область — от областного центра до малых городов региона.</p>
+  <div class="map-wrap fade-up" style="margin-top:3rem;">
+    <div class="map-info">
+      <h4>15 центров</h4>
+      <p>Калужская область</p>
+      <div class="map-legend">
+        <div class="map-dot"></div>
+        Образовательный центр
+      </div>
+    </div>
+    <svg viewBox="0 0 800 520" width="100%" style="display:block;" aria-label="Карта центров Калужской области">
+      <!-- Background -->
+      <defs>
+        <radialGradient id="bgGrad" cx="50%" cy="50%" r="60%">
+          <stop offset="0%" stop-color="#162240"/>
+          <stop offset="100%" stop-color="#0d1829"/>
+        </radialGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+      </defs>
+      <rect width="800" height="520" fill="url(#bgGrad)"/>
+      <!-- Region outline approximation -->
+      <path d="M120,80 L280,60 L400,70 L520,90 L640,140 L700,220 L680,320 L620,400 L500,440 L360,450 L240,430 L140,380 L90,280 L100,180 Z" fill="none" stroke="rgba(59,130,246,0.2)" stroke-width="2" stroke-dasharray="8,4"/>
+      <!-- Region fill -->
+      <path d="M120,80 L280,60 L400,70 L520,90 L640,140 L700,220 L680,320 L620,400 L500,440 L360,450 L240,430 L140,380 L90,280 L100,180 Z" fill="rgba(15,36,71,0.6)"/>
+      <!-- Roads/connections -->
+      <line x1="310" y1="220" x2="190" y2="310" stroke="rgba(59,130,246,0.12)" stroke-width="1.5"/>
+      <line x1="310" y1="220" x2="420" y2="310" stroke="rgba(59,130,246,0.12)" stroke-width="1.5"/>
+      <line x1="310" y1="220" x2="380" y2="155" stroke="rgba(59,130,246,0.12)" stroke-width="1.5"/>
+      <line x1="310" y1="220" x2="230" y2="170" stroke="rgba(59,130,246,0.12)" stroke-width="1.5"/>
+      <line x1="310" y1="220" x2="510" y2="190" stroke="rgba(59,130,246,0.12)" stroke-width="1.5"/>
+      <line x1="310" y1="220" x2="560" y2="300" stroke="rgba(59,130,246,0.12)" stroke-width="1.5"/>
+      <line x1="190" y1="310" x2="160" y2="380" stroke="rgba(59,130,246,0.1)" stroke-width="1"/>
+      <line x1="420" y1="310" x2="480" y2="380" stroke="rgba(59,130,246,0.1)" stroke-width="1"/>
+      <!-- Cities with pulsing dots -->
+      <!-- Kaluga (main) -->
+      <circle cx="310" cy="220" r="18" fill="rgba(192,90,58,0.15)" class="pulse-ring"/>
+      <circle cx="310" cy="220" r="12" fill="rgba(192,90,58,0.25)"/>
+      <circle cx="310" cy="220" r="7" fill="#c05a3a" class="city-dot"/>
+      <circle cx="310" cy="220" r="3" fill="white"/>
+      <text x="310" y="248" text-anchor="middle" fill="white" font-size="11" font-family="DM Sans, sans-serif" font-weight="500">Калуга</text>
+      <!-- Sukhinichi -->
+      <circle cx="190" cy="310" r="8" fill="rgba(192,90,58,0.2)"/>
+      <circle cx="190" cy="310" r="5" fill="#c05a3a" class="city-dot"/>
+      <text x="190" y="330" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10" font-family="DM Sans, sans-serif">Сухиничи</text>
+      <!-- Meshchovsk -->
+      <circle cx="155" cy="250" r="8" fill="rgba(192,90,58,0.2)"/>
+      <circle cx="155" cy="250" r="5" fill="#c05a3a" class="city-dot"/>
+      <text x="155" y="270" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10" font-family="DM Sans, sans-serif">Мещовск</text>
+      <!-- Babynino -->
+      <circle cx="230" cy="170" r="8" fill="rgba(192,90,58,0.2)"/>
+      <circle cx="230" cy="170" r="5" fill="#c05a3a" class="city-dot"/>
+      <text x="230" y="158" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10" font-family="DM Sans, sans-serif">Бабынино</text>
+      <!-- Duminichi -->
+      <circle cx="160" cy="380" r="8" fill="rgba(192,90,58,0.2)"/>
+      <circle cx="160" cy="380" r="5" fill="#c05a3a" class="city-dot"/>
+      <text x="160" y="400" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10" font-family="DM Sans, sans-serif">Думиничи</text>
+      <!-- Vorotynsk -->
+      <circle cx="380" cy="155" r="8" fill="rgba(192,90,58,0.2)"/>
+      <circle cx="380" cy="155" r="5" fill="#c05a3a" class="city-dot"/>
+      <text x="380" y="172" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10" font-family="DM Sans, sans-serif">Воротынск</text>
+      <!-- Detchino -->
+      <circle cx="420" cy="310" r="8" fill="rgba(192,90,58,0.2)"/>
+      <circle cx="420" cy="310" r="5" fill="#c05a3a" class="city-dot"/>
+      <text x="420" y="330" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10" font-family="DM Sans, sans-serif">Детчино</text>
+      <!-- Borovsk -->
+      <circle cx="460" cy="130" r="8" fill="rgba(192,90,58,0.2)"/>
+      <circle cx="460" cy="130" r="5" fill="#c05a3a" class="city-dot"/>
+      <text x="460" y="118" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10" font-family="DM Sans, sans-serif">Боровск</text>
+      <!-- Zhukov -->
+      <circle cx="510" cy="190" r="8" fill="rgba(192,90,58,0.2)"/>
+      <circle cx="510" cy="190" r="5" fill="#c05a3a" class="city-dot"/>
+      <text x="510" y="178" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10" font-family="DM Sans, sans-serif">Жуков</text>
+      <!-- Tovarkovo -->
+      <circle cx="480" cy="380" r="8" fill="rgba(192,90,58,0.2)"/>
+      <circle cx="480" cy="380" r="5" fill="#c05a3a" class="city-dot"/>
+      <text x="480" y="400" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10" font-family="DM Sans, sans-serif">Товарково</text>
+      <!-- Kondrovo -->
+      <circle cx="390" cy="240" r="8" fill="rgba(192,90,58,0.2)"/>
+      <circle cx="390" cy="240" r="5" fill="#c05a3a" class="city-dot"/>
+      <text x="390" y="260" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10" font-family="DM Sans, sans-serif">Кондрово</text>
+      <!-- Medyn -->
+      <circle cx="310" cy="150" r="8" fill="rgba(192,90,58,0.2)"/>
+      <circle cx="310" cy="150" r="5" fill="#c05a3a" class="city-dot"/>
+      <text x="310" y="138" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10" font-family="DM Sans, sans-serif">Медынь</text>
+      <!-- Sosensky -->
+      <circle cx="560" cy="300" r="8" fill="rgba(192,90,58,0.2)"/>
+      <circle cx="560" cy="300" r="5" fill="#c05a3a" class="city-dot"/>
+      <text x="560" y="320" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10" font-family="DM Sans, sans-serif">Сосенский</text>
+      <!-- Kozelsk -->
+      <circle cx="250" cy="360" r="8" fill="rgba(192,90,58,0.2)"/>
+      <circle cx="250" cy="360" r="5" fill="#c05a3a" class="city-dot"/>
+      <text x="250" y="380" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10" font-family="DM Sans, sans-serif">Козельск</text>
+      <!-- Decorative grid -->
+      <line x1="0" y1="130" x2="800" y2="130" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+      <line x1="0" y1="260" x2="800" y2="260" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+      <line x1="0" y1="390" x2="800" y2="390" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+      <line x1="200" y1="0" x2="200" y2="520" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+      <line x1="400" y1="0" x2="400" y2="520" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+      <line x1="600" y1="0" x2="600" y2="520" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </svg>
+  </div>
+  <div class="map-tooltip" id="mapTooltip"></div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label fade-up">Услуги</div>
+  <h2 class="section-title fade-up">Форматы<br><em>работы</em></h2>
+  <p class="section-sub fade-up">Выберите формат, который соответствует вашему запросу — от разовой консультации до полного сопровождения открытия центра.</p>
+    <div class="services-grid">
+        <div class="service-card fade-up">
+          <div class="service-num">01</div>
+          <h3 class="service-title">Стратегическая сессия</h3>
+          <p class="service-desc">Интенсивный разбор вашего бизнеса под ключ. Аудит текущей ситуации, точки роста, пошаговый план действий.</p>
+          <div class="service-price">25 000 ₽ <span>— 3 часа</span></div>
+          <button class="service-cta" onclick="openModal();return false">Записаться</button>
+        </div>
+        <div class="service-card fade-up">
+          <div class="service-num">02</div>
+      <div class="service-title">Открытие детского центра «под ключ»</div>
+      <div class="service-desc">Полное сопровождение от концепции до открытия. Выбор локации, дизайн помещения, лицензирование, найм команды, разработка программ, первый набор учеников.</div>
+      <div class="service-price">100 000 — 1 000 000 ₽</div>
+      <a href="#" class="service-cta" onclick="openModal();return false">Уточнить стоимость</a>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">03</div>
+      <div class="service-title">Разработка документационных систем</div>
+      <div class="service-desc">Создание полного пакета документов для образовательного центра: договоры, должностные инструкции, стандарты, регламенты, внутренние политики и шаблоны.</div>
+      <div class="service-price">По запросу</div>
+      <a href="#" class="service-cta" onclick="openModal();return false">Получить КП</a>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">04</div>
+      <div class="service-title">Обучение команды</div>
+      <div class="service-desc">Корпоративные тренинги для педагогов, администраторов и руководителей. Программы по продажам образовательных услуг, работе с родителями и педагогическому мастерству.</div>
+      <div class="service-price">По запросу</div>
+      <a href="#" class="service-cta" onclick="openModal();return false">Обсудить формат</a>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">05</div>
+      <div class="service-title">Бизнес-аудит</div>
+      <div class="service-desc">Глубокая диагностика работающего центра: финансовые показатели, операционные процессы, маркетинг, команда. Отчёт с рекомендациями и планом оптимизации.</div>
+      <div class="service-price">По запросу</div>
+      <a href="#" class="service-cta" onclick="openModal();return false">Заказать аудит</a>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="cases" id="cases">
+  <div class="section-label fade-up">Кейсы</div>
+  <h2 class="section-title fade-up">Результаты<br><em>клиентов</em></h2>
+  <div class="cases-grid">
+    <div class="case-card fade-up">
+      <div class="case-header">
+        <div class="case-city"></div>
+        <div class="case-name">Центр «Умняша»</div>
+      </div>
+      <div class="case-body">
+        <div class="case-metrics">
+          <div class="metric-item">
+            <div class="metric-label">Выручка / мес.</div>
+            <div class="metric-before">180 000 ₽</div>
+            <div class="metric-after">540 000 ₽</div>
+            <div class="metric-delta">↑ +200%</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Учеников</div>
+            <div class="metric-before">45</div>
+            <div class="metric-after">160</div>
+            <div class="metric-delta">↑ +256%</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Педагогов</div>
+            <div class="metric-before">4</div>
+            <div class="metric-after">11</div>
+            <div class="metric-delta">↑ +175%</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Срок работы</div>
+            <div class="metric-after">8 месяцев</div>
+          </div>
+        </div>
+        <p class="case-quote">«Пришла к Елене с единственным центром и кучей долгов. Сейчас открываем второй филиал и впервые за три года не живём в режиме выживания.»</p>
+      </div>
+    </div>
+    <div class="case-card fade-up">
+      <div class="case-header">
+        <div class="case-city"></div>
+        <div class="case-name">Студия «Развития»</div>
+      </div>
+      <div class="case-body">
+        <div class="case-metrics">
+          <div class="metric-item">
+            <div class="metric-label">Возвраты</div>
+            <div class="metric-before">18%</div>
+            <div class="metric-after">4%</div>
+            <div class="metric-delta">↓ -78%</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Средний LTV</div>
+            <div class="metric-before">4 месяца</div>
+            <div class="metric-after">14 месяцев</div>
+            <div class="metric-delta">↑ +250%</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">NPS</div>
+            <div class="metric-before">52</div>
+            <div class="metric-after">84</div>
+            <div class="metric-delta">↑ +62%</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Срок</div>
+            <div class="metric-after">5 месяцев</div>
+          </div>
+        </div>
+        <p class="case-quote">«Системная работа с удержанием клиентов изменила всё. Теперь мы не гоняемся за новыми учениками — нас рекомендуют сами родители.»</p>
+      </div>
+    </div>
+    <div class="case-card fade-up">
+      <div class="case-header">
+        <div class="case-city"></div>
+        <div class="case-name">«Академия детства»</div>
+      </div>
+      <div class="case-body">
+        <div class="case-metrics">
+          <div class="metric-item">
+            <div class="metric-label">Статус лицензии</div>
+            <div class="metric-before">Нет лицензии</div>
+            <div class="metric-after">Получена</div>
+            <div class="metric-delta">✓ 3 месяца</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Штраф-риски</div>
+            <div class="metric-before">Критические</div>
+            <div class="metric-after">Устранены</div>
+            <div class="metric-delta">✓ 100%</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Учеников</div>
+            <div class="metric-before">28</div>
+            <div class="metric-after">95</div>
+            <div class="metric-delta">↑ +239%</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Срок</div>
+            <div class="metric-after">6 месяцев</div>
+          </div>
+        </div>
+        <p class="case-quote">«Работали без лицензии и боялись каждой проверки. Елена провела нас через весь процесс. Теперь работаем спокойно и законно.»</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-label fade-up">Отзывы</div>
+  <h2 class="section-title fade-up">Что говорят<br><em>клиенты</em></h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card fade-up">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">«Консультация с Еленой стала переломным моментом. Она буквально разобрала мой бизнес по кирпичикам и показала, где я теряю деньги. За три месяца применения рекомендаций выручка выросла на 40%. Это не коуч — это практик, который прошёл каждый шаг сам.»</p>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:#1a3a6e;">МП</div>
+        <div>
+          <div class="author-name">Марина Петрова</div>
+          <div class="author-role">Владелец центра «Умные дети»</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">«Когда я решил открыть второй центр, я понял, что одного энтузиазма недостаточно. Елена помогла систематизировать первый, выстроить управленческую модель, и теперь оба работают без моего постоянного участия. Это настоящая свобода.»</p>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:#0f2447;">АС</div>
+        <div>
+          <div class="author-name">Алексей Смирнов</div>
+          <div class="author-role">Собственник сети «Знайка»</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">«Проблема с кадровой текучкой мучила меня годами. Елена провела аудит системы найма и адаптации, предложила конкретные решения. Теперь новые педагоги остаются у нас на год и дольше. Это экономит огромные деньги и нервы.»</p>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:#993c1d;">НК</div>
+        <div>
+          <div class="author-name">Наталья Козлова</div>
+          <div class="author-role">Директор «Академии талантов»</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">«Открыла центр самостоятельно и через год была на грани закрытия. Долги, путаница в документах, невозможность пройти лицензирование. Елена помогла выровняться буквально за четыре месяца. Сейчас у нас стабильный рост и полная загрузка.»</p>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:#185fa5;">ОВ</div>
+        <div>
+          <div class="author-name">Ольга Волкова</div>
+          <div class="author-role">Основатель студии «Лидер»</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">«Участвовал в групповом интенсиве Елены. За два дня получил больше практических знаний, чем за год самостоятельного изучения. Особенно ценны реальные кейсы и антикейсы — понимаешь, каких ошибок избегать ещё до того, как начал.»</p>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:#0f6e56;">ДН</div>
+        <div>
+          <div class="author-name">Дмитрий Николаев</div>
+          <div class="author-role">Предприниматель</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">«Елена помогла нам не просто открыться, а сразу выстроить правильную модель. Стартовали с 60 учениками в первый месяц — это фантастический результат. Честный, системный подход без пустых обещаний.»</p>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:#534ab7;">ЕМ</div>
+        <div>
+          <div class="author-name">Екатерина Морозова</div>
+          <div class="author-role">Основатель «Детская планета»</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="section-label fade-up">Вопросы</div>
+  <h2 class="section-title fade-up">Часто задаваемые<br><em>вопросы</em></h2>
+  <div class="faq-grid fade-up">
+    <div class="faq-item">
+      <button class="faq-q">С чего начать открытие детского центра? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Начните с анализа рынка в вашем городе: конкуренты, спрос, демография. Затем — концепция и бизнес-план. Параллельно начните поиск помещения. Лицензирование — отдельный блок, который лучше запускать сразу, т.к. процесс занимает 2–4 месяца.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Нужна ли образовательная лицензия? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Это зависит от формата работы. Если вы предоставляете дополнительное образование детям, лицензия обязательна. Без неё — штрафы до 250 000 рублей и принудительное закрытие. Я помогаю пройти процедуру лицензирования полностью.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Какой бюджет нужен для старта? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Всё зависит от города и формата. Минимальный старт в небольшом городе — от 500 000 рублей. Для Москвы и Санкт-Петербурга — от 2–3 млн. Я помогаю оптимизировать стартовые затраты и расставить правильные приоритеты.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Как найти квалифицированных педагогов? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Педагоги — главный ресурс и главная головная боль центра. У меня есть система найма, которая фильтрует кандидатов по ценностям и профессиональным компетенциям одновременно. Текучка снижается в разы.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Как бороться с сезонностью в образовании? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Грамотное управление программами, летние лагеря и интенсивы, гибкая система абонементов, правильная работа с базой в мае — всё это позволяет снизить летний отток до 15–20% вместо типичных 40–60%.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Как удержать клиентов и снизить отток? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Удержание — это не скидки. Это регулярная коммуникация, демонстрация прогресса ребёнка, вовлечённость родителей. Я строю систему CRM и коммуникации, при которой родители сами не хотят уходить.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Когда окупается детский центр? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">При правильном старте — 12–18 месяцев. При ошибках в концепции, команде или маркетинге — никогда. Именно поэтому важно начинать с профессионального сопровождения, а не методом проб и ошибок.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Как выбрать помещение для центра? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Требования СанПиН строги: площадь, освещённость, вентиляция, отдельный вход — всё это критично для лицензирования. Добавьте к этому транспортную доступность и видимость. Я помогаю оценить объект до подписания договора аренды.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Стоит ли покупать франшизу? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Франшиза — это не гарантия успеха, это бренд и методика. За роялти вы получаете имя, но всю операционную работу всё равно делаете сами. Я помогаю взвесить плюсы и минусы конкретных предложений.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Как масштабироваться на второй центр? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Только когда первый работает в полуавтономном режиме. Преждевременное расширение — одна из главных причин краха. Я провожу диагностику готовности и строю систему управления несколькими точками.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Как работать с проверками и надзорными органами? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Лучшая стратегия — работать так, чтобы проверки не были страшными. Полный комплект документов, соответствие санитарным нормам, правильные трудовые договоры — и проверяющий уходит без нарушений.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Формат консультаций — очно или онлайн? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Работаю в обоих форматах. Онлайн-консультации — через Zoom или Telegram. Для выезда на место (аудит, обучение команды) обсуждаем условия индивидуально. География не ограничение.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Что входит в бизнес-аудит? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Анализ финансовой модели, операционных процессов, маркетинга, кадровой ситуации и документации. Результат — подробный отчёт с оценкой рисков и конкретным планом улучшений по приоритетам.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Как продвигать детский центр без большого бюджета? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Сарафанное радио плюс партнёрства — самые эффективные каналы при правильной настройке. Реферальная программа, коллаборации со школами, работа в родительских чатах. Это работает лучше таргетированной рекламы для нашей ниши.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Сколько времени занимает получение результата? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Первые изменения видны уже после первой консультации. Системные результаты — через 3–6 месяцев работы. Это не магия, это планомерная работа. Те клиенты, которые выполняют рекомендации, получают результат без исключений.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <h2>Готовы сделать следующий шаг?</h2>
+  <p>Запишитесь на первичную консультацию и получите честный анализ вашей ситуации</p>
+  <a href="#" class="btn-white" onclick="openModal();return false">Записаться на консультацию</a>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label fade-up">Контакты</div>
+  <h2 class="section-title fade-up">Свяжитесь<br><em>со мной</em></h2>
+  <div class="contact-inner">
+    <div>
+      <p class="section-sub fade-up">Выберите удобный способ связи — я на связи и отвечаю быстро.</p>
+      <div class="contact-channels fade-up">
+        <a href="https://t.me/elenabizness86" target="_blank" class="channel-link">
+          <div class="channel-icon">✈</div>
+          <div class="channel-info"><div class="channel-name">Telegram</div><div class="channel-handle">@elenabizness86</div></div>
+        </a>
+        <a href="https://wa.me/79805136121" target="_blank" class="channel-link">
+          <div class="channel-icon">◎</div>
+          <div class="channel-info"><div class="channel-name">WhatsApp</div><div class="channel-handle">8 980 513-61-21</div></div>
+        </a>
+        <a href="https://maxln.ru/chudo" target="_blank" class="channel-link">
+          <div class="channel-icon">◈</div>
+          <div class="channel-info"><div class="channel-name">MAX</div><div class="channel-handle">Личный профиль</div></div>
+        </a>
+        <a href="mailto:Balakina_elena86@mail.ru" class="channel-link">
+          <div class="channel-icon">✉</div>
+          <div class="channel-info"><div class="channel-name">Email</div><div class="channel-handle">Balakina_elena86@mail.ru</div></div>
+        </a>
+        <a href="tel:+79805136121" class="channel-link">
+          <div class="channel-icon">☏</div>
+          <div class="channel-info"><div class="channel-name">Телефон</div><div class="channel-handle">8 980 513-61-21</div></div>
+        </a>
+      </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">Елена <em>Белохон</em></div>
+      <p class="footer-tagline">Ментор детского образовательного бизнеса. Помогаю предпринимателям строить устойчивые образовательные центры с нуля.</p>
+    </div>
+    <div class="footer-links">
+      <h5>Навигация</h5>
+      <ul>
+        <li><a href="#about">О себе</a></li>
+        <li><a href="#expertise">Экспертиза</a></li>
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#cases">Кейсы</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h5>Связаться</h5>
+      <ul>
+        <li><a href="https://t.me/elena_belokhon" target="_blank">Telegram</a></li>
+        <li><a href="https://wa.me/79001234567" target="_blank">WhatsApp</a></li>
+        <li><a href="https://maxln.ru/chudo" target="_blank">MAX</a></li>
+        <li><a href="mailto:elena@belokhon.ru">Email</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h5>Достижения</h5>
+      <ul>
+        <li><a href="#">Победитель «Мы вместе»</a></li>
+        <li><a href="#">Грантополучатель ФРП</a></li>
+        <li><a href="#">Спикер EdTech Forum</a></li>
+        <li><a href="#">Эксперт ОНФ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Елена Белохон. Все права защищены.</p>
+    <div class="footer-awards">
+      <span class="award-badge">«Мы вместе» 2022</span>
+      <span class="award-badge">Грант ФРП 2021</span>
+      <span class="award-badge">EdTech Expert</span>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-title">Оставьте <em>заявку</em></div>
+    <p class="modal-sub">Напишите — я отвечу в ближайшее время.</p>
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group"><label>Имя</label><input type="text" placeholder="Ваше имя"></div>
+        <div class="form-group"><label>Телефон</label><input type="tel" placeholder="+7 (___) ___-__-__"></div>
+      </div>
+      <div class="form-group">
+        <label>Тема</label>
+        <select>
+          <option value="">Выберите запрос</option>
+          <option>Бизнес-консультация</option>
+          <option>Открытие детского центра</option>
+          <option>Документационные системы</option>
+          <option>Обучение команды</option>
+          <option>Бизнес-аудит</option>
+          <option>Другое</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Сообщение</label><textarea rows="4" placeholder="Расскажите о вашей ситуации..."></textarea></div>
+      <button class="btn-primary" style="align-self:flex-start;border:none;" onclick="submitToMax()">Отправить заявку</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const body = document.body;
+const toggle = document.getElementById('themeToggle');
+toggle.addEventListener('click', () => {
+  const current = body.getAttribute('data-theme');
+  body.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+  toggle.textContent = current === 'dark' ? '☽' : '☀';
+});
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => { mobileNav.classList.toggle('open'); });
+function closeMobileNav() { mobileNav.classList.remove('open'); }
+window.addEventListener('load', () => {
+  const els = ['hero-name','hero-tagline','hero-desc','hero-pills','hero-ctas'];
+  els.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.style.transition = `opacity 0.8s ease ${i*0.12}s, transform 0.8s cubic-bezier(0.16,1,0.3,1) ${i*0.12}s`;
+    setTimeout(() => { el.style.opacity='1'; el.style.transform='translateY(0) scale(1)'; }, 100+i*80);
+  });
+  const badge = document.getElementById('hero-badge');
+  if (badge) {
+    const text = badge.dataset.text || '';
+    badge.textContent = '';
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i < text.length) {
+        badge.textContent += text[i];
+        i++;
+      } else { clearInterval(interval); badge.classList.add('done'); }
+    }, 50);
+  }
+});
+gsap.registerPlugin(ScrollTrigger);
+gsap.utils.toArray('.fade-up').forEach(el => {
+  gsap.fromTo(el, {opacity:0,y:40}, {opacity:1,y:0,duration:0.9,ease:'power3.out',
+    scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}});
+});
+gsap.utils.toArray('.fade-in').forEach(el => {
+  gsap.fromTo(el, {opacity:0}, {opacity:1,duration:1,ease:'power2.out',
+    scrollTrigger:{trigger:el,start:'top 85%',toggleActions:'play none none none'}});
+});
+document.querySelectorAll('.counter').forEach(counter => {
+  const target = parseInt(counter.dataset.target);
+  ScrollTrigger.create({ trigger: counter, start: 'top 85%', onEnter: () => {
+    let current = 0; const step = target / (2000/16);
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) { current = target; clearInterval(timer); }
+      counter.textContent = Math.floor(current).toLocaleString('ru');
+    }, 16);
+  }});
+});
+if (window.innerWidth > 768) {
+  gsap.to('.hero-image-wrap img', {yPercent:12,ease:'none',
+    scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+}
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.style.boxShadow = window.scrollY > 20 ? '0 4px 30px rgba(0,0,0,0.08)' : 'none';
+});
+
+/* ── EXPERTISE CAROUSEL ── */
+const track = document.getElementById('expTrack');
+const prevBtn = document.getElementById('expPrev');
+const nextBtn = document.getElementById('expNext');
+const cards = track.querySelectorAll('.expertise-card');
+let current = 0;
+
+function snapTo(idx) {
+  current = idx;
+  track.scrollLeft = cards[idx].offsetLeft;
+  prevBtn.disabled = current === 0;
+  nextBtn.disabled = current === cards.length - 1;
+}
+
+prevBtn.addEventListener('click', () => { if (current > 0) snapTo(current - 1); });
+nextBtn.addEventListener('click', () => { if (current < cards.length - 1) snapTo(current + 1); });
+
+snapTo(0);
+
+/* ── MODAL ── */
+const overlay = document.getElementById('modalOverlay');
+function openModal() { overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeModal() { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+function submitToMax() {
+  const name = document.querySelector('.contact-form input[type="text"]').value.trim() || '';
+  const phone = document.querySelector('.contact-form input[type="tel"]').value.trim() || '';
+  const topic = document.querySelector('.contact-form select').value || '';
+  const msg = document.querySelector('.contact-form textarea').value.trim() || '';
+  const subject = encodeURIComponent('Заявка с сайта Елены Белохон');
+  const body = encodeURIComponent('Имя: ' + name + '\nТелефон: ' + phone + '\nТема: ' + topic + '\nСообщение: ' + msg);
+  document.querySelectorAll('.contact-form input, .contact-form textarea, .contact-form select').forEach(el => el.value = '');
+  window.open('mailto:Balakina_elena86@mail.ru?subject=' + subject + '&body=' + body);
+  closeModal();
+}
+
+/* ── INTERACTIVE MAP ── */
+const cityData = {
+  'Калуга':   { centers: 7, students: 380, founded: 2010 },
+  'Сухиничи': { centers: 1, students: 45,  founded: 2013 },
+  'Мещовск':  { centers: 1, students: 35,  founded: 2014 },
+  'Бабынино': { centers: 1, students: 30,  founded: 2013 },
+  'Думиничи': { centers: 1, students: 25,  founded: 2015 },
+  'Воротынск':{ centers: 1, students: 50,  founded: 2014 },
+  'Детчино':  { centers: 1, students: 28,  founded: 2015 },
+  'Боровск':  { centers: 1, students: 60,  founded: 2014 },
+  'Жуков':    { centers: 1, students: 40,  founded: 2015 },
+  'Товарково':{ centers: 1, students: 32,  founded: 2016 },
+  'Кондрово': { centers: 1, students: 38,  founded: 2016 },
+  'Медынь':   { centers: 1, students: 25,  founded: 2017 },
+  'Сосенский':{ centers: 1, students: 22,  founded: 2017 },
+  'Козельск': { centers: 1, students: 35,  founded: 2017 }
+};
+
+const mapSvg = document.querySelector('.map-section svg');
+const mapTooltip = document.getElementById('mapTooltip');
+
+function closeTooltip() { mapTooltip.classList.remove('open'); }
+
+mapSvg.addEventListener('click', (e) => {
+  const pt = mapSvg.createSVGPoint();
+  pt.x = e.clientX;
+  pt.y = e.clientY;
+  const svgPt = pt.matrixTransform(mapSvg.getScreenCTM().inverse());
+
+  let nearest = null;
+  let minDist = 50;
+  document.querySelectorAll('.city-dot').forEach(dot => {
+    const cx = parseFloat(dot.getAttribute('cx'));
+    const cy = parseFloat(dot.getAttribute('cy'));
+    const dist = Math.hypot(svgPt.x - cx, svgPt.y - cy);
+    if (dist < minDist) { minDist = dist; nearest = dot; }
+  });
+
+  if (nearest) {
+    const nx = parseFloat(nearest.getAttribute('cx'));
+    const ny = parseFloat(nearest.getAttribute('cy'));
+    let cityName = '';
+    mapSvg.querySelectorAll('text').forEach(t => {
+      const tx = parseFloat(t.getAttribute('x'));
+      const ty = parseFloat(t.getAttribute('y'));
+      if (Math.hypot(tx - nx, ty - ny) < 30) cityName = t.textContent.trim();
+    });
+
+    if (cityName && cityData[cityName]) {
+      const d = cityData[cityName];
+      const r = mapSvg.getBoundingClientRect();
+      const sx = r.width / 800;
+      const sy = r.height / 520;
+      let px = r.left + nx * sx;
+      let py = r.top + ny * sy;
+
+      mapTooltip.innerHTML =
+        '<h4>' + cityName + ' <em>· ' + d.centers + ' ' + (d.centers > 1 ? 'центров' : 'центр') + '</em></h4>' +
+        '<div class="mt-stat">Учеников <span>' + d.students + '+</span></div>' +
+        '<div class="mt-stat">Основан <span>' + d.founded + '</span></div>';
+      mapTooltip.classList.add('open');
+      mapTooltip.style.left = Math.max(12, Math.min(px - 90, window.innerWidth - mapTooltip.offsetWidth - 12)) + 'px';
+      mapTooltip.style.top = Math.max(12, py - mapTooltip.offsetHeight - 16) + 'px';
+    }
+  } else {
+    closeTooltip();
+  }
+});
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.map-section') && !e.target.closest('#mapTooltip')) closeTooltip();
+});
+document.addEventListener('scroll', closeTooltip, { passive: true });
+</script>
+</body>
+</html>
